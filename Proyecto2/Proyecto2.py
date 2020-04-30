@@ -1,4 +1,9 @@
-#Une todos los caracteres de los dos parámetros
+#Luis Eduardo Núñez Altamirano
+#A01633894
+#Proyecto algoritmo CYK
+
+
+#Une los símbolos terminales con el producto cruz
 def unir_car(a, b):
     res = set()
     if a == set() or b == set():
@@ -10,7 +15,7 @@ def unir_car(a, b):
 
 def leer_gramatica():
     try:
-        gramatica=open("gramatica1.txt")
+        gramatica=open("/Users/luiseduardo/Documents/Tec/Sexto_semestre/Mate_Compu/MateCompu/Proyecto2/gramatica6.txt")
         leer = gramatica.readlines()
         g = []
         t = []
@@ -22,20 +27,20 @@ def leer_gramatica():
             der = der[:-1].split(" | ")
             for d in der:
 
-                # si es terminal
-                if str.islower(d):
-                    t.append([izq, d])
-
                 # generador
-                else:
+                if str.isupper(d):
                     g.append([izq, d])
+
+                # terminal
+                else:
+                    t.append([izq, d])
         return g,t
     except:
         print("Error al abrir archivo")
 
 def leer_expresion():
     try:
-        archivo=open("resp1.txt")
+        archivo=open("/Users/luiseduardo/Documents/Tec/Sexto_semestre/Mate_Compu/MateCompu/Proyecto2/resp6.txt")
         exp=archivo.readlines()
         exp=exp[0][:-1]
         return exp
@@ -67,7 +72,7 @@ def cyk_alg(gen, ter, exp):
     return tab
 
 
-def show_result(tab, exp):
+def imprimir_matriz(tab, exp):
     for c in exp:
         print("\t{}".format(c), end="\t")
     print()
@@ -75,7 +80,7 @@ def show_result(tab, exp):
         print(i+1, end="")
         for c in tab[i]:
             if c == set():
-                print("\t{}".format("_"), end="\t")
+                print("\t{}".format("0"), end="\t")
             else:
                 print("\t{}".format(c), end="\t")
         print()
@@ -89,4 +94,4 @@ def show_result(tab, exp):
 g,t=leer_gramatica()
 e = leer_expresion()
 ta = cyk_alg(g, t, e)
-show_result(ta, e)
+imprimir_matriz(ta, e)
