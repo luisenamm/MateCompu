@@ -15,7 +15,7 @@ def unir_car(a, b):
 
 def leer_gramatica():
     try:
-        gramatica=open("/Users/luiseduardo/Documents/Tec/Sexto_semestre/Mate_Compu/MateCompu/Proyecto2/gramatica1.txt")
+        gramatica=open("gramatica1.txt")
         leer = gramatica.readlines()
         g = []
         t = []
@@ -40,7 +40,7 @@ def leer_gramatica():
 
 def leer_expresion():
     try:
-        archivo=open("/Users/luiseduardo/Documents/Tec/Sexto_semestre/Mate_Compu/MateCompu/Proyecto2/resp1.txt")
+        archivo=open("resp1.txt")
         exp=archivo.readlines()
         exp=exp[0][:-1]
         return exp
